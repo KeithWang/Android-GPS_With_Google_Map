@@ -10,3 +10,9 @@ PS:This is practice program.
 ========================
 
 This APP can check GPS service and show your location on UI.
+
+========================
+
+Some text need to use UTF-8 code to show. So I will change this word to English when I have free time.
+
+My English is very pool so I will try my best to do anything.
