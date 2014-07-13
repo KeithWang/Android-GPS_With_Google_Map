@@ -49,11 +49,11 @@ public class MainActivity extends Activity {
 		LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 	    if( !locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ) {
 	        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-	        builder.setTitle("定位服務尚未開啟");  
-	        builder.setMessage("使用本系統需要開啟GPS定位" +
-	        				   "\n需開啟選項中的「GPS服務」" +
-	        				   "\n\n目前偵測系統尚未開啟服務，" +
-	        				   "\n是否要開起服務?"); 
+	        builder.setTitle("GPS Service not open!");
+	        builder.setMessage("Use this app need to use GPS service" +
+	        				   "\nNeed to open 'GPS SERVICE'"+
+	        				   "\n\nWe find you not open it" +
+	        				   "\nAre you open this service?"); 
 	        builder.setNegativeButton("YES", new DialogInterface.OnClickListener() {
 	            public void onClick(DialogInterface dialogInterface, int i) {
 	                MainActivity.this.startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
@@ -75,7 +75,7 @@ public class MainActivity extends Activity {
 			if (initLocationProvider()) {
 		        whereami();
 		    }else{
-		    	textoutput.setText("Remind:Please open GPS！");
+		    	textoutput.setText("Remind:Please open GPS");
 		    }
 	    }
 	}
@@ -104,13 +104,13 @@ public class MainActivity extends Activity {
 		public void onGpsStatusChanged(int event) {
 	        switch (event) {
 	            case GpsStatus.GPS_EVENT_STARTED:
-	            	gpssta = "搜尋中";
+	            	gpssta = "STARTED";
 	            	break;
 	            case GpsStatus.GPS_EVENT_STOPPED:
-	            	gpssta = "停止服務";
+	            	gpssta = "STOPPED";
 	            	break;
 	            case GpsStatus.GPS_EVENT_FIRST_FIX:
-	            	gpssta = "定位";
+	            	gpssta = "FIRST_FIX";
 	            	break;
 	            case GpsStatus.GPS_EVENT_SATELLITE_STATUS:
 	            	break;
